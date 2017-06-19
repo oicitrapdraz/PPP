@@ -7,15 +7,15 @@
 
 // Parametros del AE
 
-short int pop_size = 20;
+short int pop_size = 60;
 
-short int penalization_factor = 50;
+short int penalization_factor = 1;
 
-short int prob_hill_climbing_1 = 60;
-short int prob_hill_climbing_2 = 25;
-short int prob_hill_climbing_3 = 50;
+short int prob_hill_climbing_1 = 70;
+short int prob_hill_climbing_2 = 30;
+short int prob_hill_climbing_3 = 55;
 
-short int hc_iterations = 1;
+short int hc_iterations = 3;
 
 // Parametros del ejercicio
 
@@ -45,6 +45,8 @@ int main() {
     sort_population(population, false);
 
     best_solutiion = population[0].unfitness;
+
+    show_chromosome(&population[0]);
 
     while (population[0].unfitness > periods) {
       calculate_next_population(&population);

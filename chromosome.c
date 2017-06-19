@@ -31,21 +31,8 @@ void obtain_yachts_host_indexes(chrom *chromosome) {
     for (short int i = 0; i < yachts_quantity; i++)
       chromosome->yachts_host_indexes[i] = malloc(periods * sizeof(short int));
 
-    int actual_index = 0;
-
-    // aqui randomizar
-    for (short int i = 0; (i < yachts_quantity) && (actual_index < periods); i++)
-      if (chromosome->h[i] == 1) {
-        chromosome->yachts_host_indexes[0][actual_index] = i;
-        actual_index++;
-      }
-
-    for (short int i = 1; i < yachts_quantity; i++)
-      memcpy(chromosome->yachts_host_indexes[i], chromosome->yachts_host_indexes[0], periods * sizeof(short int));
-
     for (short int i = 0; i < yachts_quantity; i++)
-      if (chromosome->h[i] == 0)
-        shuffle_array_short_int(chromosome->yachts_host_indexes[i], periods);
+      get_rand_host_index(chromosome, chromosome->yachts_host_indexes[i]);
   }
 }
 
@@ -116,15 +103,16 @@ void calculate_unfitness(chrom *chromosome, bool verb) {
   // La capacidad de un yate anfitrion no puede ser excedido
 
   for (short int i = 0; i < yachts_quantity; i++)
-    for (short int k = 0; k < periods; k++) {
-      int acumulated_capacity = 0;
-      for (short int j = 0; j < yachts_quantity; j++)
-        if (i != j)
-          acumulated_capacity += yachts_crew_size[j] * chromosome->x[i][j][k];
+    if (chromosome->h[i])
+      for (short int k = 0; k < periods; k++) {
+        int acumulated_incoming_crew = 0;
+        for (short int j = 0; j < yachts_quantity; j++)
+          if ((i != j) && chromosome->h[i])
+            acumulated_incoming_crew += yachts_crew_size[j] * chromosome->x[i][j][k];
 
-      if (acumulated_capacity > yachts_capacities[i] - yachts_crew_size[i])
-        exceeded_capacity += acumulated_capacity - (yachts_capacities[i] - yachts_crew_size[i]);
-    }
+        if (acumulated_incoming_crew > yachts_capacities[i] - yachts_crew_size[i])
+          exceeded_capacity += acumulated_incoming_crew - (yachts_capacities[i] - yachts_crew_size[i]);
+      }
 
   if (exceeded_capacity > 0 && verb)
     printf("\nEn total existieron %d sobre excesos respecto a las capacidades de los yates", exceeded_capacity);
@@ -255,15 +243,16 @@ void show_chromosome(chrom *chromosome) {
   // La capacidad de un yate anfitrion no puede ser excedido
 
   for (short int i = 0; i < yachts_quantity; i++)
-    for (short int k = 0; k < periods; k++) {
-      int acumulated_capacity = 0;
-      for (short int j = 0; j < yachts_quantity; j++)
-        if (i != j)
-          acumulated_capacity += yachts_crew_size[j] * chromosome->x[i][j][k];
+    if (chromosome->h[i])
+      for (short int k = 0; k < periods; k++) {
+        int acumulated_incoming_crew = 0;
+        for (short int j = 0; j < yachts_quantity; j++)
+          if ((i != j) && chromosome->h[i])
+            acumulated_incoming_crew += yachts_crew_size[j] * chromosome->x[i][j][k];
 
-      if (acumulated_capacity > yachts_capacities[i] - yachts_crew_size[i])
-        exceeded_capacity += acumulated_capacity - (yachts_capacities[i] - yachts_crew_size[i]);
-    }
+        if (acumulated_incoming_crew > yachts_capacities[i] - yachts_crew_size[i])
+          exceeded_capacity += acumulated_incoming_crew - (yachts_capacities[i] - yachts_crew_size[i]);
+      }
 
   if (exceeded_capacity > 0)
     fprintf(fp, "\nEn total existieron %d sobre excesos respecto a las capacidades de los yates", exceeded_capacity);
@@ -461,4 +450,31 @@ void hill_climbing_3(chrom *chromosome)  {
   calculate_unfitness(chromosome, false);
 
   free(host_configuration);
+}
+
+void get_rand_host_index(chrom *chromosome, short int *array) {
+  short int *tmp_array = malloc(chromosome->yachts_host_quantity * sizeof(short int));
+  bool *added = malloc(chromosome->yachts_host_quantity * sizeof(bool));
+
+  short int actual_index = 0;
+
+  for (short int i = 0; (i < yachts_quantity) && (actual_index < chromosome->yachts_host_quantity); i++)
+    if (chromosome->h[i] == 1) {
+      tmp_array[actual_index] = i;
+      added[actual_index] = false;
+      actual_index++;
+    }
+
+  for (short int i = 0; i < periods; i++) {
+    short int index = rand() % chromosome->yachts_host_quantity;
+
+    if (added[index] == false) {
+      array[i] = tmp_array[index];
+      added[index] = true;
+    } else
+      i--;
+  }
+
+  free(tmp_array);
+  free(added);
 }

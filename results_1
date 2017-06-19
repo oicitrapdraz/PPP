@@ -1,0 +1,43 @@
+Se tienen 41 yates anfitriones
+
+Distribucion de yates anfitiones { 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 }
+Los indices de los yates anfitriones son:
+- Para el yate  7: {  0  0  0  1  0  0 }
+
+
+- EN EL PERIODO: 0
+
+El yate  7 visito al yate  0
+
+
+- EN EL PERIODO: 1
+
+El yate  7 visito al yate  0
+
+
+- EN EL PERIODO: 2
+
+El yate  7 visito al yate  0
+
+
+- EN EL PERIODO: 3
+
+El yate  7 visito al yate  1
+
+
+- EN EL PERIODO: 4
+
+El yate  7 visito al yate  0
+
+
+- EN EL PERIODO: 5
+
+El yate  7 visito al yate  0
+
+
+En total existieron 54 sobre excesos respecto a las capacidades de los yates
+Existieron 4 casos en que tripulaciones se reencontraron con los mismos yates anfitionres
+
+Unfitness es: 215
+
+La solucion es infactible

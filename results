@@ -1,108 +1,143 @@
-Se tienen 34 yates anfitriones
+Se tienen 29 yates anfitriones
 
-Distribucion de yates anfitiones { 1 0 1 0 1 1 1 1 1 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 0 1 1 }
+Distribucion de yates anfitiones { 1 1 1 1 1 1 0 1 0 1 1 1 1 1 1 1 0 1 1 1 1 1 1 0 0 1 1 1 1 0 0 0 1 1 1 0 0 1 1 0 0 0 }
 Los indices de los yates anfitriones son:
-- Para el yate  1: {  5  2  7  0  6  4 }
-- Para el yate  3: {  4  7  0  5  6  2 }
-- Para el yate 16: {  6  2  4  5  7  0 }
-- Para el yate 17: {  2  7  4  0  5  6 }
-- Para el yate 25: {  7  0  5  6  2  4 }
-- Para el yate 33: {  0  5  7  2  4  6 }
-- Para el yate 34: {  4  6  2  7  5  0 }
-- Para el yate 39: {  4  0  6  2  7  5 }
+- Para el yate  6: { 18  4  7 15 11 10 }
+- Para el yate  8: {  5 13 19 38 34  7 }
+- Para el yate 16: {  3 32 18 15 17 28 }
+- Para el yate 23: { 20 33  9 10 13 21 }
+- Para el yate 24: { 28 19  3  0 17 10 }
+- Para el yate 29: {  0 10 32  9 19 17 }
+- Para el yate 30: { 13 22 28  1 14  0 }
+- Para el yate 31: { 33 11 25 34 13 19 }
+- Para el yate 35: {  0 27 21 28 18 19 }
+- Para el yate 36: {  3  9  1 17 28  2 }
+- Para el yate 39: { 19  1  4 10 18 17 }
+- Para el yate 40: { 32  1 10 13  4 21 }
+- Para el yate 41: { 34 20  4 38  0 17 }
 
 
 - EN EL PERIODO: 0
 
-El yate  1 visito al yate  5
-El yate  3 visito al yate  4
-El yate 16 visito al yate  6
-El yate 17 visito al yate  2
-El yate 25 visito al yate  7
-El yate 33 visito al yate  0
-El yate 34 visito al yate  4
-El yate 39 visito al yate  4
+El yate  6 visito al yate 18
+El yate  8 visito al yate  5
+El yate 16 visito al yate  3
+El yate 23 visito al yate 20
+El yate 24 visito al yate 28
+El yate 29 visito al yate  0
+El yate 30 visito al yate 13
+El yate 31 visito al yate 33
+El yate 35 visito al yate  0
+El yate 36 visito al yate  3
+El yate 39 visito al yate 19
+El yate 40 visito al yate 32
+El yate 41 visito al yate 34
 
-Tripulantes de los yates 34 y  3 se encontraron
-Tripulantes de los yates 39 y  3 se encontraron
-Tripulantes de los yates 39 y 34 se encontraron
+Tripulantes de los yates 35 y 29 se encontraron
+Tripulantes de los yates 36 y 16 se encontraron
 
 - EN EL PERIODO: 1
 
-El yate  1 visito al yate  2
-El yate  3 visito al yate  7
-El yate 16 visito al yate  2
-El yate 17 visito al yate  7
-El yate 25 visito al yate  0
-El yate 33 visito al yate  5
-El yate 34 visito al yate  6
-El yate 39 visito al yate  0
+El yate  6 visito al yate  4
+El yate  8 visito al yate 13
+El yate 16 visito al yate 32
+El yate 23 visito al yate 33
+El yate 24 visito al yate 19
+El yate 29 visito al yate 10
+El yate 30 visito al yate 22
+El yate 31 visito al yate 11
+El yate 35 visito al yate 27
+El yate 36 visito al yate  9
+El yate 39 visito al yate  1
+El yate 40 visito al yate  1
+El yate 41 visito al yate 20
 
-Tripulantes de los yates 16 y  1 se encontraron
-Tripulantes de los yates 17 y  3 se encontraron
-Tripulantes de los yates 39 y 25 se encontraron
+Tripulantes de los yates 40 y 39 se encontraron
 
 - EN EL PERIODO: 2
 
-El yate  1 visito al yate  7
-El yate  3 visito al yate  0
-El yate 16 visito al yate  4
-El yate 17 visito al yate  4
-El yate 25 visito al yate  5
-El yate 33 visito al yate  7
-El yate 34 visito al yate  2
-El yate 39 visito al yate  6
+El yate  6 visito al yate  7
+El yate  8 visito al yate 19
+El yate 16 visito al yate 18
+El yate 23 visito al yate  9
+El yate 24 visito al yate  3
+El yate 29 visito al yate 32
+El yate 30 visito al yate 28
+El yate 31 visito al yate 25
+El yate 35 visito al yate 21
+El yate 36 visito al yate  1
+El yate 39 visito al yate  4
+El yate 40 visito al yate 10
+El yate 41 visito al yate  4
 
-Tripulantes de los yates 17 y 16 se encontraron
-Tripulantes de los yates 33 y  1 se encontraron
+Tripulantes de los yates 41 y 39 se encontraron
 
 - EN EL PERIODO: 3
 
-El yate  1 visito al yate  0
-El yate  3 visito al yate  5
-El yate 16 visito al yate  5
-El yate 17 visito al yate  0
-El yate 25 visito al yate  6
-El yate 33 visito al yate  2
-El yate 34 visito al yate  7
-El yate 39 visito al yate  2
+El yate  6 visito al yate 15
+El yate  8 visito al yate 38
+El yate 16 visito al yate 15
+El yate 23 visito al yate 10
+El yate 24 visito al yate  0
+El yate 29 visito al yate  9
+El yate 30 visito al yate  1
+El yate 31 visito al yate 34
+El yate 35 visito al yate 28
+El yate 36 visito al yate 17
+El yate 39 visito al yate 10
+El yate 40 visito al yate 13
+El yate 41 visito al yate 38
 
-Tripulantes de los yates 16 y  3 se encontraron
-Tripulantes de los yates 17 y  1 se encontraron
-Tripulantes de los yates 39 y 33 se encontraron
+Tripulantes de los yates 16 y  6 se encontraron
+Tripulantes de los yates 39 y 23 se encontraron
+Tripulantes de los yates 41 y  8 se encontraron
 
 - EN EL PERIODO: 4
 
-El yate  1 visito al yate  6
-El yate  3 visito al yate  6
-El yate 16 visito al yate  7
-El yate 17 visito al yate  5
-El yate 25 visito al yate  2
-El yate 33 visito al yate  4
-El yate 34 visito al yate  5
-El yate 39 visito al yate  7
+El yate  6 visito al yate 11
+El yate  8 visito al yate 34
+El yate 16 visito al yate 17
+El yate 23 visito al yate 13
+El yate 24 visito al yate 17
+El yate 29 visito al yate 19
+El yate 30 visito al yate 14
+El yate 31 visito al yate 13
+El yate 35 visito al yate 18
+El yate 36 visito al yate 28
+El yate 39 visito al yate 18
+El yate 40 visito al yate  4
+El yate 41 visito al yate  0
 
-Tripulantes de los yates  3 y  1 se encontraron
-Tripulantes de los yates 34 y 17 se encontraron
-Tripulantes de los yates 39 y 16 se encontraron
+Tripulantes de los yates 24 y 16 se encontraron
+Tripulantes de los yates 31 y 23 se encontraron
+Tripulantes de los yates 39 y 35 se encontraron
 
 - EN EL PERIODO: 5
 
-El yate  1 visito al yate  4
-El yate  3 visito al yate  2
-El yate 16 visito al yate  0
-El yate 17 visito al yate  6
-El yate 25 visito al yate  4
-El yate 33 visito al yate  6
-El yate 34 visito al yate  0
-El yate 39 visito al yate  5
+El yate  6 visito al yate 10
+El yate  8 visito al yate  7
+El yate 16 visito al yate 28
+El yate 23 visito al yate 21
+El yate 24 visito al yate 10
+El yate 29 visito al yate 17
+El yate 30 visito al yate  0
+El yate 31 visito al yate 19
+El yate 35 visito al yate 19
+El yate 36 visito al yate  2
+El yate 39 visito al yate 17
+El yate 40 visito al yate 21
+El yate 41 visito al yate 17
 
-Tripulantes de los yates 25 y  1 se encontraron
-Tripulantes de los yates 33 y 17 se encontraron
-Tripulantes de los yates 34 y 16 se encontraron
+Tripulantes de los yates 24 y  6 se encontraron
+Tripulantes de los yates 35 y 31 se encontraron
+Tripulantes de los yates 39 y 29 se encontraron
+Tripulantes de los yates 40 y 23 se encontraron
+Tripulantes de los yates 41 y 29 se encontraron
+Tripulantes de los yates 41 y 39 se encontraron
 
-En total existieron 54 sobre excesos respecto a las capacidades de los yates
+En total existieron 14 sobre excesos respecto a las capacidades de los yates
+Existieron 1 reencuentros que no debieron haber ocurrido entre yates no anfitriones
 
-Unfitness es: 2734
+Unfitness es: 44
 
 La solucion es infactible

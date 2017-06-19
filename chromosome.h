@@ -52,4 +52,6 @@ void hill_climbing_2(chrom *chromosome);
 
 void hill_climbing_3(chrom *chromosome);
 
+void get_rand_host_index(chrom *chromosome, short int *array);
+
 #endif
