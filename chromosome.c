@@ -73,7 +73,7 @@ void obtain_m(chrom *chromosome) {
 }
 
 void calculate_unfitness(chrom *chromosome, bool verb) {
-  int visits_to_nonhost_yatch = 0, exceeded_capacity = 0, idle_or_host_visiting = 0, visits_same_host = 0, meet_same_people = 0;
+  int visits_to_nonhost_yatch = 0, exceeded_capacity = 0, idle_or_host_visiting = 0, visits_same_host = 0, impossible = 0, meet_same_people = 0;
 
   if (verb)
     printf("\nSe tienen %hu yates anfitriones", chromosome->yachts_host_quantity);
@@ -114,7 +114,7 @@ void calculate_unfitness(chrom *chromosome, bool verb) {
           exceeded_capacity += acumulated_incoming_crew - (yachts_capacities[i] - yachts_crew_size[i]);
       }
 
-  if (exceeded_capacity > 0 && verb)
+  if ((exceeded_capacity > 0) && verb)
     printf("\nEn total existieron %d sobre excesos respecto a las capacidades de los yates", exceeded_capacity);
 
   // Cada tripulacion debe ser anfitrion o huesped en un yate anfitrion en cada periodo de tiempo (no idle), pero un anfitrion tampoco debe visitar otros yates
@@ -129,7 +129,7 @@ void calculate_unfitness(chrom *chromosome, bool verb) {
         idle_or_host_visiting += 1;
     }
 
-  if (idle_or_host_visiting > 0 && verb) {
+  if ((idle_or_host_visiting > 0) && verb) {
     printf("\nEn total existieron %d casos en que una tripulacion: ", idle_or_host_visiting);
     printf("\n - Estubo idle");
     printf("\n - Visito a mas de un yate");
@@ -148,8 +148,20 @@ void calculate_unfitness(chrom *chromosome, bool verb) {
         visits_same_host += acumulated_visits - 1;
     }
 
-  if (visits_same_host > 0 && verb)
+  if ((visits_same_host > 0) && verb)
     printf("\nExistieron %d casos en que tripulaciones se reencontraron con los mismos yates anfitionres", visits_same_host);
+
+  // Enlazar variable m con x
+
+  for (short int i = 0; i < yachts_quantity; i++)
+    for (short int j = 0; j < yachts_quantity; j++)
+      for (short int l = 0; l < j; l++)
+        for (short int k = 0; k < periods; k++)
+          if (chromosome->m[j][l][k] < chromosome->x[i][j][k] + chromosome->x[i][l][k] - 1)
+            impossible += chromosome->x[i][j][k] + chromosome->x[i][l][k] - 1 - chromosome->m[j][l][k];
+
+  if ((impossible > 0) && verb)
+    printf("\nExistieron %d casos en que ocurrio lo imposible", impossible);
 
   // Cada par de tripulaciones a lo mas se pueden encontrar 1 vez
 
@@ -163,10 +175,10 @@ void calculate_unfitness(chrom *chromosome, bool verb) {
         meet_same_people += acumulated_meets - 1;
     }
 
-  if (meet_same_people > 0 && verb)
+  if ((meet_same_people > 0) && verb)
     printf("\nExistieron %d reencuentros que no debieron haber ocurrido entre yates no anfitriones", meet_same_people);
 
-  chromosome->unfitness = penalization_factor * (visits_to_nonhost_yatch + exceeded_capacity + idle_or_host_visiting + visits_same_host + meet_same_people) + chromosome->yachts_host_quantity;
+  chromosome->unfitness = penalization_factor * (visits_to_nonhost_yatch + exceeded_capacity + idle_or_host_visiting + visits_same_host + impossible + meet_same_people) + chromosome->yachts_host_quantity;
 
   if (chromosome->unfitness > chromosome->yachts_host_quantity)
     chromosome->factible = false;
@@ -192,7 +204,7 @@ void deep_copy_chromosome(chrom *chromosome_1, chrom *chromosome_2) {
 void show_chromosome(chrom *chromosome) {
   FILE *fp = fopen("results", "w");
 
-  int visits_to_nonhost_yatch = 0, exceeded_capacity = 0, idle_or_host_visiting = 0, visits_same_host = 0, meet_same_people = 0;
+  int visits_to_nonhost_yatch = 0, exceeded_capacity = 0, idle_or_host_visiting = 0, visits_same_host = 0, impossible = 0, meet_same_people = 0;
 
   fprintf(fp, "Se tienen %hu yates anfitriones\n\n", chromosome->yachts_host_quantity);
 
@@ -290,6 +302,18 @@ void show_chromosome(chrom *chromosome) {
 
   if (visits_same_host > 0)
     fprintf(fp, "\nExistieron %d casos en que tripulaciones se reencontraron con los mismos yates anfitionres", visits_same_host);
+
+    // Enlazar variable m con x
+
+  for (short int i = 0; i < yachts_quantity; i++)
+    for (short int j = 0; j < yachts_quantity; j++)
+      for (short int l = 0; l < yachts_quantity; l++)
+        for (short int k = 0; k < periods; k++)
+          if (chromosome->m[j][l][k] < chromosome->x[i][j][k] + chromosome->m[i][l][k] - 1)
+            impossible += chromosome->x[i][j][k] + chromosome->m[i][l][k] - 1 - chromosome->m[j][l][k];
+
+  if (impossible > 0)
+    fprintf(fp, "\nExistieron %d casos en que ocurrio lo imposible", impossible);
 
   // Cada par de tripulaciones a lo mas se pueden encontrar 1 vez
 

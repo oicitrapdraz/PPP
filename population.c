@@ -1,6 +1,8 @@
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 
 #include "global.h"
 #include "population.h"
@@ -23,7 +25,7 @@ void sort_population(chrom *population, bool verb) {
         }
 
   for (short int i = 0; i < pop_size; i++) {
-    population[i].fit = pop_size - i + 1;
+    population[i].fit = log(pop_size - i + 1) + 1;
     if (verb)
       printf("El cromosoma %4hu tiene un fitness de: %4hu (no aptitud de %4d) y es ", i, population[i].fit, population[i].unfitness);
 
@@ -53,16 +55,6 @@ void  initialize_population(chrom **population) {
 }
 
 void calculate_next_population(chrom **population) {
-
-  // La idea es que aqui:
-  // 1° Creamos a la poblacion intermedia (recordar que se tiene que guardar siempre la mejor solucion)
-  // 2° Ejecutamos operadores geneticos sobre la poblacion intermedia
-    // - Para el op. de explotacion podriamos hacer un shuffle de los hosts que ya tenemos asignados (y recalcular todo, el numero de hosts, sus indices, x, m, etc.) hasta que nos de algo mejor
-    // - Para el op. de exploracion podriamos hacer una asignacion nueva de hosts aleatorios (y recalcular todo, el numero de hosts, sus indices, x, m, etc.)
-  // 3° Calculamos unfitness
-  // 4° Reordenamos la poblacion segun unfitness
-  // 5° Calculamos fitness
-
   float *acum_fit = malloc(pop_size * sizeof(float));
   int acumulator = 0;
 

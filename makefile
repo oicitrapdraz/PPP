@@ -1,5 +1,5 @@
 compiler = gcc
-flags = -O3 -Wall -std=c99
+flags = -O3 -Wall -std=c99 -lm
 
 main: main.o population.o chromosome.o functions.o
 	$(compiler) $(flags) $^ -o $@
